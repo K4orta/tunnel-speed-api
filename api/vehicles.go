@@ -9,6 +9,7 @@ import (
 	"github.com/k4orta/muni"
 )
 
+// Vehicles reutrns the vehicles belonging to a specific line
 func Vehicles(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -19,10 +20,11 @@ func Vehicles(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprint(w, string(out))
 }
 
+// AllVehicles returns all of the vehicles in the system
 func AllVehicles(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	vd, _ := muni.GetMultiVehicleData([]string{"N", "L", "J"})
+	vd, _ := muni.GetMultiVehicleData([]string{"N", "L", "J", "KT", "M"})
 
 	out, _ := json.Marshal(vd)
 	fmt.Fprint(w, string(out))
