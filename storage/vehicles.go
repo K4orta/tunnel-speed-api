@@ -1,6 +1,8 @@
 package storage
 
 import (
+	"time"
+
 	"github.com/jmoiron/sqlx"
 	"github.com/k4orta/muni"
 )
@@ -24,7 +26,13 @@ func InsertVehicle(db *sqlx.DB, v *muni.Vehicle) error {
 	return nil
 }
 
-func GetVehiclesById(db *sqlx.DB, id string) ([]*muni.Vehicle, error) {
+// GetVehiclesByTime returns all vehicles logged after limit
+func GetVehiclesByTime(db *sqlx.DB, limit time.Duration) ([]*muni.Vehicle, error) {
+	return []*muni.Vehicle{}, nil
+}
+
+// GetVehiclesByID returns all vehicles with a given ID
+func GetVehiclesByID(db *sqlx.DB, id string) ([]*muni.Vehicle, error) {
 	v := []*muni.Vehicle{}
 	err := db.Select(&v, `SELECT * FROM vehicles WHERE vehicle_id=$1`, id)
 	if err != nil {

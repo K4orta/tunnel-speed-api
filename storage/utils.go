@@ -38,7 +38,7 @@ var dbSchema = Schema{
 
 var pgdb *sqlx.DB
 
-// Setup the storage module for testing
+// SetupDBForTesting initializes the storage module for testing
 func SetupDBForTesting() {
 	connectionDSN = os.Getenv("MUNI_TEST_POSTGRES_DSN")
 	db, err := CreateConnection()

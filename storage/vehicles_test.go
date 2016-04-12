@@ -28,7 +28,7 @@ func TestInsertVehicle(t *testing.T) {
 			t.Error(err)
 		}
 
-		v, err := GetVehiclesById(db, "1234")
+		v, err := GetVehiclesByID(db, "1234")
 
 		if err != nil {
 			t.Error(err)
@@ -37,5 +37,28 @@ func TestInsertVehicle(t *testing.T) {
 		if v[0].Id != "1234" {
 			t.Error("Didn't insert vehicle with correct ID")
 		}
+	})
+}
+
+func TestGetVehiclesByTime(t *testing.T) {
+	RunStorageTest(t, func(db *sqlx.DB, t *testing.T) {
+		var newVehicle = muni.Vehicle{Id: "1234", TimeRecieved: time.Now()}
+		var newVehicle2 = muni.Vehicle{Id: "1234", TimeRecieved: time.Now().Add(-time.Minute)}
+		var oldVehicle = muni.Vehicle{Id: "1235", TimeRecieved: time.Unix(1420919252102, 0)}
+
+		InsertVehicle(db, &newVehicle)
+		InsertVehicle(db, &newVehicle2)
+		InsertVehicle(db, &oldVehicle)
+
+		v, err := GetVehiclesByTime(db, time.Minute*5)
+
+		if err != nil {
+			t.Error(err)
+		}
+
+		if len(v) != 2 {
+			t.Error("Wrong number of items returned")
+		}
+
 	})
 }
