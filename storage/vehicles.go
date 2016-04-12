@@ -27,8 +27,13 @@ func InsertVehicle(db *sqlx.DB, v *muni.Vehicle) error {
 }
 
 // GetVehiclesByTime returns all vehicles logged after limit
-func GetVehiclesByTime(db *sqlx.DB, limit time.Duration) ([]*muni.Vehicle, error) {
-	return []*muni.Vehicle{}, nil
+func GetVehiclesByTime(db *sqlx.DB, limit time.Time) ([]*muni.Vehicle, error) {
+	v := []*muni.Vehicle{}
+	err := db.Select(&v, `SELECT * FROM vehicles WHERE time_recieved >= $1`, limit)
+	if err != nil {
+		return nil, err
+	}
+	return v, nil
 }
 
 // GetVehiclesByID returns all vehicles with a given ID

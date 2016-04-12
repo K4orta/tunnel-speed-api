@@ -42,15 +42,17 @@ func TestInsertVehicle(t *testing.T) {
 
 func TestGetVehiclesByTime(t *testing.T) {
 	RunStorageTest(t, func(db *sqlx.DB, t *testing.T) {
-		var newVehicle = muni.Vehicle{Id: "1234", TimeRecieved: time.Now()}
-		var newVehicle2 = muni.Vehicle{Id: "1234", TimeRecieved: time.Now().Add(-time.Minute)}
-		var oldVehicle = muni.Vehicle{Id: "1235", TimeRecieved: time.Unix(1420919252102, 0)}
+		var recentDate int64 = 1460432740083
+		var oldDate int64 = 1420919252102
+		var newVehicle = muni.Vehicle{Id: "1234", TimeRecieved: time.Unix(recentDate, 0)}
+		var newVehicle2 = muni.Vehicle{Id: "1235", TimeRecieved: time.Unix(recentDate, 0).Add(-time.Minute)}
+		var oldVehicle = muni.Vehicle{Id: "1236", TimeRecieved: time.Unix(oldDate, 0)}
 
 		InsertVehicle(db, &newVehicle)
 		InsertVehicle(db, &newVehicle2)
 		InsertVehicle(db, &oldVehicle)
 
-		v, err := GetVehiclesByTime(db, time.Minute*5)
+		v, err := GetVehiclesByTime(db, time.Unix(recentDate, 0).Add(time.Minute*-5))
 
 		if err != nil {
 			t.Error(err)
