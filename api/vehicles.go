@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -16,7 +17,10 @@ func Vehicles(w http.ResponseWriter, req *http.Request) {
 	vars := mux.Vars(req)
 	vd, _ := muni.GetVehiclesData(vars["route"])
 
-	out, _ := json.Marshal(vd)
+	out, err := json.Marshal(vd)
+	if err != nil {
+		log.Println(err)
+	}
 	fmt.Fprint(w, string(out))
 }
 
@@ -26,6 +30,9 @@ func AllVehicles(w http.ResponseWriter, req *http.Request) {
 
 	vd, _ := muni.GetMultiVehicleData([]string{"N", "L", "J", "KT", "M"})
 
-	out, _ := json.Marshal(vd)
+	out, err := json.Marshal(vd)
+	if err != nil {
+		log.Println(err)
+	}
 	fmt.Fprint(w, string(out))
 }

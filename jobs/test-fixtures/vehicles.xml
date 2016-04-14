@@ -1,0 +1,38 @@
+
+<?xml version="1.0" encoding="utf-8" ?>
+<body copyright="All data copyright San Francisco Muni 2016.">
+<vehicle id="1434" routeTag="N" dirTag="N____O_F00" lat="37.79034" lon="-122.38929" secsSinceReport="50" predictable="true" heading="316" speedKmHr="24" leadingVehicleId="1505"/>
+<vehicle id="1413" routeTag="N" dirTag="N____O_D00" lat="37.76932" lon="-122.43232" secsSinceReport="45" predictable="true" heading="265" speedKmHr="24" leadingVehicleId="1464"/>
+<vehicle id="1505" routeTag="N" dirTag="N____O_F00" lat="37.7905299" lon="-122.38962" secsSinceReport="50" predictable="true" heading="315" speedKmHr="18"/>
+<vehicle id="1534" routeTag="N" dirTag="N____O_D00" lat="37.76123" lon="-122.48791" secsSinceReport="18" predictable="true" heading="266" speedKmHr="29"/>
+<vehicle id="1542" routeTag="N" dirTag="N____I_F00" lat="37.76165" lon="-122.47869" secsSinceReport="73" predictable="true" heading="87" speedKmHr="20" leadingVehicleId="1533"/>
+<vehicle id="1511" routeTag="N" dirTag="N____I_F00" lat="37.76037" lon="-122.50891" secsSinceReport="30" predictable="true" heading="262" speedKmHr="5" leadingVehicleId="1497"/>
+<vehicle id="1518" routeTag="N" dirTag="N____O_F00" lat="37.76176" lon="-122.47596" secsSinceReport="33" predictable="true" heading="266" speedKmHr="24" leadingVehicleId="1466"/>
+<vehicle id="1460" routeTag="N" dirTag="N____I_F00" lat="37.76952" lon="-122.42753" secsSinceReport="4" predictable="true" heading="87" speedKmHr="0" leadingVehicleId="1446"/>
+<vehicle id="1546" routeTag="N" lat="37.75195" lon="-122.38483" secsSinceReport="41" predictable="false" heading="-4" speedKmHr="0" leadingVehicleId="1512"/>
+<vehicle id="1443" routeTag="N" dirTag="N____I_F00" lat="37.76083" lon="-122.49688" secsSinceReport="9" predictable="true" heading="87" speedKmHr="29"/>
+<vehicle id="1533" routeTag="N" dirTag="N____I_F00" lat="37.76166" lon="-122.47826" secsSinceReport="73" predictable="true" heading="86" speedKmHr="20"/>
+<vehicle id="1450" routeTag="N" dirTag="N____O_D00" lat="37.76122" lon="-122.48852" secsSinceReport="4" predictable="true" heading="266" speedKmHr="12" leadingVehicleId="1534"/>
+<vehicle id="1512" routeTag="N" lat="37.75156" lon="-122.38484" secsSinceReport="26" predictable="false" heading="-4" speedKmHr="0"/>
+<vehicle id="1490" routeTag="N" dirTag="N____I_F00" lat="37.77563" lon="-122.39499" secsSinceReport="21" predictable="true" heading="225" speedKmHr="24"/>
+<vehicle id="1475" routeTag="N" dirTag="N____O_F00" lat="37.76438" lon="-122.4581" secsSinceReport="52" predictable="true" heading="266" speedKmHr="18"/>
+<vehicle id="1466" routeTag="N" dirTag="N____O_F00" lat="37.7617" lon="-122.47665" secsSinceReport="21" predictable="true" heading="266" speedKmHr="1"/>
+<vehicle id="1425" routeTag="N" lat="37.75158" lon="-122.38473" secsSinceReport="25" predictable="false" heading="175" speedKmHr="3"/>
+<vehicle id="1451" routeTag="N" dirTag="N____I_F00" lat="37.76491" lon="-122.4572" secsSinceReport="33" predictable="true" heading="79" speedKmHr="22"/>
+<vehicle id="1489" routeTag="N" dirTag="N____I_F00" lat="37.76081" lon="-122.49662" secsSinceReport="8" predictable="true" heading="87" speedKmHr="20" leadingVehicleId="1443"/>
+<vehicle id="1446" routeTag="N" dirTag="N____I_F00" lat="37.76952" lon="-122.42753" secsSinceReport="4" predictable="true" heading="87" speedKmHr="0"/>
+<vehicle id="1510" routeTag="N" dirTag="N____I_F00" lat="37.79118" lon="-122.39044" secsSinceReport="4" predictable="true" heading="145" speedKmHr="16" leadingVehicleId="1410"/>
+<vehicle id="1492" routeTag="N" dirTag="N____O_F00" lat="37.76923" lon="-122.43457" secsSinceReport="94" predictable="true" heading="255" speedKmHr="14"/>
+<vehicle id="1410" routeTag="N" dirTag="N____I_F00" lat="37.79101" lon="-122.39029" secsSinceReport="8" predictable="true" heading="145" speedKmHr="0"/>
+<vehicle id="1400" routeTag="N" dirTag="N____O_F00" lat="37.7874" lon="-122.38786" secsSinceReport="6" predictable="true" heading="182" speedKmHr="12"/>
+<vehicle id="1447" routeTag="N" dirTag="N____O_F00" lat="37.78969" lon="-122.40095" secsSinceReport="15" predictable="true" heading="227" speedKmHr="37" leadingVehicleId="1508"/>
+<vehicle id="1483" routeTag="N" dirTag="N____O_F00" lat="37.77561" lon="-122.3951" secsSinceReport="9" predictable="true" heading="218" speedKmHr="0"/>
+<vehicle id="1497" routeTag="N" dirTag="N____I_F00" lat="37.76035" lon="-122.50825" secsSinceReport="93" predictable="true" heading="266" speedKmHr="9"/>
+<vehicle id="1464" routeTag="N" dirTag="N____O_D00" lat="37.76931" lon="-122.43354" secsSinceReport="26" predictable="true" heading="267" speedKmHr="16"/>
+<vehicle id="1514" routeTag="N" dirTag="N____I_F00" lat="37.76447" lon="-122.45773" secsSinceReport="45" predictable="true" heading="15" speedKmHr="14" leadingVehicleId="1451"/>
+<vehicle id="1508" routeTag="N" dirTag="N____O_F00" lat="37.78969" lon="-122.40095" secsSinceReport="15" predictable="true" heading="227" speedKmHr="37"/>
+<vehicle id="1523" routeTag="N" dirTag="N____O_F00" lat="37.76925" lon="-122.43462" secsSinceReport="89" predictable="true" heading="244" speedKmHr="9" leadingVehicleId="1492"/>
+<vehicle id="1481" routeTag="N" dirTag="N____O_F00" lat="37.76443" lon="-122.45818" secsSinceReport="45" predictable="true" heading="266" speedKmHr="18" leadingVehicleId="1475"/>
+<vehicle id="1412" routeTag="N" dirTag="N____O_F00" lat="37.78746" lon="-122.38788" secsSinceReport="3" predictable="true" heading="183" speedKmHr="27" leadingVehicleId="1400"/>
+<lastTime time="1460498787925"/>
+</body>
