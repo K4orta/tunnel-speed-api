@@ -9,7 +9,7 @@ import (
 
 // InsertVehicle adds a vehicle to the database
 func InsertVehicle(db *sqlx.DB, v *muni.Vehicle) error {
-	_, err := db.NamedQuery(`
+	rows, err := db.NamedQuery(`
     INSERT INTO vehicles (
       route_tag, vehicle_id, time_recieved, heading,
       dir_tag, lat, lng, leading_vehicle_id, predictable,
@@ -23,6 +23,7 @@ func InsertVehicle(db *sqlx.DB, v *muni.Vehicle) error {
 	if err != nil {
 		return err
 	}
+	rows.Close()
 	return nil
 }
 
