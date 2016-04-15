@@ -31,7 +31,7 @@ func TestInsertVehicle(t *testing.T) {
 	})
 }
 
-func TestGetVehiclesByTime(t *testing.T) {
+func TestGetVehiclesAfterTime(t *testing.T) {
 	RunStorageTest(t, func(db *sqlx.DB, t *testing.T) {
 		var recentDate int64 = 1460432740083 / 1000
 		var oldDate int64 = 1420919252102 / 1000
@@ -43,7 +43,7 @@ func TestGetVehiclesByTime(t *testing.T) {
 		InsertVehicle(db, &newVehicle2)
 		InsertVehicle(db, &oldVehicle)
 
-		v, err := GetVehiclesByTime(db, time.Unix(recentDate, 0).Add(time.Minute*-5))
+		v, err := GetVehiclesAfterTime(db, time.Unix(recentDate, 0).Add(time.Minute*-5))
 
 		if err != nil {
 			t.Error(err)

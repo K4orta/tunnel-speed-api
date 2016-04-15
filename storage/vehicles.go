@@ -27,8 +27,8 @@ func InsertVehicle(db *sqlx.DB, v *muni.Vehicle) error {
 	return nil
 }
 
-// GetVehiclesByTime returns all vehicles logged after limit
-func GetVehiclesByTime(db *sqlx.DB, limit time.Time) ([]*muni.Vehicle, error) {
+// GetVehiclesAfterTime returns all vehicles logged after limit
+func GetVehiclesAfterTime(db *sqlx.DB, limit time.Time) ([]*muni.Vehicle, error) {
 	v := []*muni.Vehicle{}
 	err := db.Select(&v, `SELECT * FROM vehicles WHERE time_recieved >= $1`, limit)
 	if err != nil {
