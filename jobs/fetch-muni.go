@@ -12,7 +12,7 @@ import (
 func RunFetch() {
 	for {
 		log.Println("Starting Fetch")
-		err := fetchTransit([]string{"N"})
+		err := fetchTransit([]string{"N", "KT", "J", "M", "L"})
 		if err != nil {
 			log.Println("ERROR:", err)
 		}
