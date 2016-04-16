@@ -6,7 +6,6 @@ import "time"
 type MultiVehicle struct {
 	ID               string          `json:"id" db:"vehicle_id"`
 	Route            string          `json:"route" db:"route_tag"`
-	DirTag           string          `json:"dirTag"`
 	LeadingVehicleID string          `json:"leadingVehicleId"`
 	Stats            []*VehicleStats `json:"stats"`
 }
@@ -17,6 +16,7 @@ type VehicleStats struct {
 	Time        time.Time `json:"time"`
 	Position    LatLng    `json:"position"`
 	Heading     int       `json:"heading"`
+	DirTag      string    `json:"dirTag"`
 	SpeedKmHr   float32   `json:"speedKmHr"`
 }
 

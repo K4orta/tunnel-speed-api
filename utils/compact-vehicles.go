@@ -17,7 +17,6 @@ func CompactVehicles(vehicles []*muni.Vehicle) []*models.MultiVehicle {
 				ID:               v.ID,
 				Route:            v.RouteTag,
 				LeadingVehicleID: v.LeadingVehicleID,
-				DirTag:           v.DirTag,
 			}
 			out = append(out, cache[v.ID])
 		}
@@ -26,6 +25,7 @@ func CompactVehicles(vehicles []*muni.Vehicle) []*models.MultiVehicle {
 			Predictable: v.Predictable,
 			Heading:     v.Heading,
 			Time:        v.TimeRecieved.Add(-time.Second * time.Duration(v.SecsSinceReport)),
+			DirTag:      v.DirTag,
 			Position: models.LatLng{
 				Lat: v.Lat,
 				Lng: v.Lng,

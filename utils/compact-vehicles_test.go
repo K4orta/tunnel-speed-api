@@ -16,7 +16,7 @@ func TestCompactVehicles(t *testing.T) {
 
 	v := vehicles[0]
 
-	if v.ID != "1545" || v.Route != "N" || v.LeadingVehicleID != "1510" || v.DirTag != "N____I_E30" {
+	if v.ID != "1545" || v.Route != "N" || v.LeadingVehicleID != "1510" {
 		t.Error("Did not populate vehicle static properties")
 	}
 
@@ -24,11 +24,17 @@ func TestCompactVehicles(t *testing.T) {
 		t.Error("Did not populate stats")
 	}
 
-	if v.Stats[0].Position.Lat != 37.77693 || v.Stats[0].Position.Lng != -122.41684 {
+	if len(v.Stats) != 2 {
+		t.Error("Did not populate all stats")
+	}
+
+	stats := v.Stats[0]
+
+	if stats.Position.Lat != 37.77693 || stats.Position.Lng != -122.41684 {
 		t.Error("Did not populate the LatLng stat")
 	}
 
-	if v.Stats[0].Time != time.Unix(1460775707000/1000, 0).Add(-time.Second*44) {
+	if stats.Time != time.Unix(1460775707000/1000, 0).Add(-time.Second*44) {
 		t.Error("Did not subtract SecsSinceReport from TimeRecieved")
 	}
 }

@@ -5,9 +5,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/k4orta/muni"
+	"github.com/k4orta/tunnel-watch/storage"
+	"github.com/k4orta/tunnel-watch/utils"
 )
 
 // Vehicles reutrns the vehicles belonging to a specific line
@@ -28,11 +31,14 @@ func Vehicles(w http.ResponseWriter, req *http.Request) {
 func AllVehicles(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	vd, _ := muni.GetMultiVehicleData([]string{"N", "L", "J", "KT", "M"})
-
-	out, err := json.Marshal(vd)
+	db, _ := storage.CreateConnection()
+	vd, err := storage.GetVehiclesAfterTime(db, time.Now().Add(time.Minute*-5))
+	compacted := utils.CompactVehicles(vd)
+	out, err := json.Marshal(compacted)
 	if err != nil {
 		log.Println(err)
 	}
 	fmt.Fprint(w, string(out))
 }
+
+//
