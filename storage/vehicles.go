@@ -47,6 +47,15 @@ func GetVehiclesBeforeTime(db *sqlx.DB, limit time.Time) ([]*muni.Vehicle, error
 	return v, nil
 }
 
+func RemoveVehiclesOlderThan(db *sqlx.DB, limit time.Time) error {
+	rows, err := db.Query(`DELETE FROM vehicles WHERE time_recieved < $1`, limit)
+	if err != nil {
+		return err
+	}
+	rows.Close()
+	return nil
+}
+
 // GetVehiclesByID returns all vehicles with a given ID
 func GetVehiclesByID(db *sqlx.DB, id string) ([]*muni.Vehicle, error) {
 	v := []*muni.Vehicle{}

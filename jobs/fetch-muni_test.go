@@ -14,10 +14,6 @@ import (
 	"github.com/k4orta/tunnel-watch/storage"
 )
 
-func init() {
-	storage.SetupDBForTesting()
-}
-
 func TestFetchTransit(t *testing.T) {
 	fakeServer := makeFakeServer()
 	muni.SetConfig(muni.TransitConfig{DefaultURL: fakeServer.URL + "/"})
@@ -27,7 +23,7 @@ func TestFetchTransit(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
-		v, _ := storage.GetVehiclesByTime(db, time.Unix(1460498787925/1000, 0).Add(time.Minute*-5))
+		v, _ := storage.GetVehiclesAfterTime(db, time.Unix(1460498787925/1000, 0).Add(time.Minute*-5))
 		if len(v) == 0 {
 			t.Error("Did not add any vehicles to the DB")
 		}
