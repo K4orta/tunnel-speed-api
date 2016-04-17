@@ -22,11 +22,15 @@ func TestExpireVehicles(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
-		ExpireOldVehicles()
-		v, _ := storage.GetVehiclesBeforeTime(db, time.Unix(1460498787925/1000, 0).Add(time.Minute))
-
+		expireOldVehicles(time.Unix(1460498787925/1000, 0).UTC())
+		v, err := storage.GetVehiclesBeforeTime(db, time.Unix(1460498787925/1000, 0).Add(time.Minute).UTC())
+		// fmt.Println(v[0].TimeRecieved)
+		// fmt.Println(time.Unix(1460498787925/1000, 0).Add(time.Minute))
+		if err != nil {
+			t.Error(err)
+		}
 		if len(v) != 0 {
-			t.Error("Failed to remove vehicles from DB")
+			t.Error("Failed to remove vehicles from DB", len(v))
 		}
 	})
 }
