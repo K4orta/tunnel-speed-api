@@ -9,8 +9,8 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/k4orta/muni"
-	"github.com/k4orta/tunnel-watch/storage"
-	"github.com/k4orta/tunnel-watch/utils"
+	"github.com/k4orta/tunnel-speed-api/storage"
+	"github.com/k4orta/tunnel-speed-api/utils"
 )
 
 // Vehicles reutrns the vehicles belonging to a specific line

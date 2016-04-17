@@ -6,7 +6,7 @@ import (
 
 	"github.com/jmoiron/sqlx"
 	"github.com/k4orta/muni"
-	"github.com/k4orta/tunnel-watch/storage"
+	"github.com/k4orta/tunnel-speed-api/storage"
 )
 
 func init() {

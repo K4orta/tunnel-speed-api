@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/k4orta/muni"
-	"github.com/k4orta/tunnel-watch/models"
+	"github.com/k4orta/tunnel-speed-api/models"
 )
 
 // CompactVehicles transforms an array of Vehicles into MultiVehicle and merges the ones with the same ID

@@ -4,7 +4,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/k4orta/tunnel-watch/storage"
+	"github.com/k4orta/tunnel-speed-api/storage"
 )
 
 // RunExpire loops every hour and clean up entries older than a day
