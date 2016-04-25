@@ -10,7 +10,8 @@ import (
 
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/stops/{route}", api.Stops)
+	router.HandleFunc("/routes/{route}", api.Stops)
+	router.HandleFunc("/routes", api.AllStops)
 	router.HandleFunc("/vehicles/{route}", api.Vehicles)
 	router.HandleFunc("/vehicles", api.AllVehicles)
 
