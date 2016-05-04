@@ -16,7 +16,7 @@ func RunFetch() {
 		if err != nil {
 			log.Println("ERROR:", err)
 		}
-		time.Sleep(time.Minute)
+		time.Sleep(time.Second * 30)
 	}
 }
 
