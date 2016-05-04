@@ -28,6 +28,7 @@ func fetchTransit(lines []string) error {
 	db, err := storage.CreateConnection()
 	if err != nil {
 		log.Println(db)
+		return err
 	}
 	defer db.Close()
 	for _, v := range vehicles {
