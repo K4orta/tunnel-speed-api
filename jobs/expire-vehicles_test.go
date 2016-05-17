@@ -24,8 +24,6 @@ func TestExpireVehicles(t *testing.T) {
 		}
 		expireOldVehicles(time.Unix(1460498787925/1000, 0).UTC())
 		v, err := storage.GetVehiclesBeforeTime(db, time.Unix(1460498787925/1000, 0).Add(time.Minute).UTC())
-		// fmt.Println(v[0].TimeRecieved)
-		// fmt.Println(time.Unix(1460498787925/1000, 0).Add(time.Minute))
 		if err != nil {
 			t.Error(err)
 		}

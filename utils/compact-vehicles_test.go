@@ -35,7 +35,7 @@ func TestCompactVehicles(t *testing.T) {
 	}
 
 	if stats.Time != time.Unix(1460775707000/1000, 0).Add(-time.Second*44) {
-		t.Error("Failed to subtract SecsSinceReport from TimeRecieved")
+		t.Error("Failed to subtract SecsSinceReport from TimeReceived")
 	}
 }
 
@@ -46,7 +46,7 @@ func createStubs() []*muni.Vehicle {
 			RouteTag:         "N",
 			Lat:              37.77693,
 			Lng:              -122.41684,
-			TimeRecieved:     time.Unix(1460775707000/1000, 0),
+			TimeReceived:     time.Unix(1460775707000/1000, 0),
 			LeadingVehicleID: "1510",
 			SpeedKmHr:        66,
 			DirTag:           "N____I_E30",
@@ -57,7 +57,7 @@ func createStubs() []*muni.Vehicle {
 			RouteTag:         "N",
 			Lat:              37.78032,
 			Lng:              -122.41257,
-			TimeRecieved:     time.Unix(1460775767000/1000, 0),
+			TimeReceived:     time.Unix(1460775767000/1000, 0),
 			LeadingVehicleID: "1510",
 			SpeedKmHr:        0,
 			DirTag:           "N____I_E30",
@@ -68,7 +68,7 @@ func createStubs() []*muni.Vehicle {
 			RouteTag:         "N",
 			Lat:              37.78032,
 			Lng:              -122.41257,
-			TimeRecieved:     time.Unix(1460775767000/1000, 0),
+			TimeReceived:     time.Unix(1460775767000/1000, 0),
 			LeadingVehicleID: "1510",
 			SpeedKmHr:        0,
 			DirTag:           "N____I_E30",

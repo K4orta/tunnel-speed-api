@@ -17,14 +17,20 @@ func CompactVehicles(vehicles []*muni.Vehicle) []*models.MultiVehicle {
 				ID:               v.ID,
 				Route:            v.RouteTag,
 				LeadingVehicleID: v.LeadingVehicleID,
+				Predictable:      true,
 			}
 			out = append(out, cache[v.ID])
 		}
+
+		if !v.Predictable {
+			cache[v.ID].Predictable = false
+		}
+
 		cache[v.ID].Stats = append(cache[v.ID].Stats, &models.VehicleStats{
 			SpeedKmHr:   v.SpeedKmHr,
 			Predictable: v.Predictable,
 			Heading:     v.Heading,
-			Time:        v.TimeRecieved.Add(-time.Second * time.Duration(v.SecsSinceReport)),
+			Time:        v.TimeReceived.Add(-time.Second * time.Duration(v.SecsSinceReport)),
 			DirTag:      v.DirTag,
 			Position: models.LatLng{
 				Lat: v.Lat,
