@@ -35,9 +35,9 @@ func TestGetVehiclesAfterTime(t *testing.T) {
 	RunStorageTest(t, func(db *sqlx.DB, t *testing.T) {
 		var recentDate int64 = 1460432740083 / 1000
 		var oldDate int64 = 1420919252102 / 1000
-		var newVehicle = muni.Vehicle{ID: "1234", TimeRecieved: time.Unix(recentDate, 0)}
-		var newVehicle2 = muni.Vehicle{ID: "1235", TimeRecieved: time.Unix(recentDate, 0).Add(-time.Minute)}
-		var oldVehicle = muni.Vehicle{ID: "1236", TimeRecieved: time.Unix(oldDate, 0)}
+		var newVehicle = muni.Vehicle{ID: "1234", TimeReceived: time.Unix(recentDate, 0)}
+		var newVehicle2 = muni.Vehicle{ID: "1235", TimeReceived: time.Unix(recentDate, 0).Add(-time.Minute)}
+		var oldVehicle = muni.Vehicle{ID: "1236", TimeReceived: time.Unix(oldDate, 0)}
 
 		InsertVehicle(db, &newVehicle)
 		InsertVehicle(db, &newVehicle2)
@@ -59,9 +59,9 @@ func TestGetVehiclesBeforeTime(t *testing.T) {
 	RunStorageTest(t, func(db *sqlx.DB, t *testing.T) {
 		var recentDate int64 = 1460432740083 / 1000
 		var oldDate int64 = 1420919252102 / 1000
-		var newVehicle = muni.Vehicle{ID: "1234", TimeRecieved: time.Unix(recentDate, 0)}
-		var newVehicle2 = muni.Vehicle{ID: "1235", TimeRecieved: time.Unix(recentDate, 0).Add(-time.Minute)}
-		var oldVehicle = muni.Vehicle{ID: "1236", TimeRecieved: time.Unix(oldDate, 0)}
+		var newVehicle = muni.Vehicle{ID: "1234", TimeReceived: time.Unix(recentDate, 0)}
+		var newVehicle2 = muni.Vehicle{ID: "1235", TimeReceived: time.Unix(recentDate, 0).Add(-time.Minute)}
+		var oldVehicle = muni.Vehicle{ID: "1236", TimeReceived: time.Unix(oldDate, 0)}
 
 		InsertVehicle(db, &newVehicle)
 		InsertVehicle(db, &newVehicle2)
@@ -83,9 +83,9 @@ func TestRemoveVehiclesBeforeTime(t *testing.T) {
 	RunStorageTest(t, func(db *sqlx.DB, t *testing.T) {
 		var recentDate int64 = 1460432740083 / 1000
 		var oldDate int64 = 1420919252102 / 1000
-		var newVehicle = muni.Vehicle{ID: "1234", TimeRecieved: time.Unix(recentDate, 0)}
-		var newVehicle2 = muni.Vehicle{ID: "1234", TimeRecieved: time.Unix(recentDate, 0).Add(-time.Minute)}
-		var oldVehicle = muni.Vehicle{ID: "1234", TimeRecieved: time.Unix(oldDate, 0)}
+		var newVehicle = muni.Vehicle{ID: "1234", TimeReceived: time.Unix(recentDate, 0)}
+		var newVehicle2 = muni.Vehicle{ID: "1234", TimeReceived: time.Unix(recentDate, 0).Add(-time.Minute)}
+		var oldVehicle = muni.Vehicle{ID: "1234", TimeReceived: time.Unix(oldDate, 0)}
 
 		InsertVehicle(db, &newVehicle)
 		InsertVehicle(db, &newVehicle2)

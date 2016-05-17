@@ -20,7 +20,7 @@ var dbSchema = Schema{
     create TABLE vehicles (
       route_tag text NOT NULL,
       vehicle_id text NOT NULL,
-      time_recieved timestamp default now(),
+      time_received timestamp default now(),
       heading int,
       dir_tag text,
       lat double precision,

@@ -11,12 +11,12 @@ import (
 func InsertVehicle(db *sqlx.DB, v *muni.Vehicle) error {
 	rows, err := db.NamedQuery(`
     INSERT INTO vehicles (
-      route_tag, vehicle_id, time_recieved, heading,
+      route_tag, vehicle_id, time_received, heading,
       dir_tag, lat, lng, leading_vehicle_id, predictable,
       secs_since_report, speed_km_hr
     )
     VALUES (
-      :route_tag, :vehicle_id, :time_recieved, :heading,
+      :route_tag, :vehicle_id, :time_received, :heading,
       :dir_tag, :lat, :lng, :leading_vehicle_id, :predictable,
       :secs_since_report, :speed_km_hr
     );`, v)
@@ -30,7 +30,7 @@ func InsertVehicle(db *sqlx.DB, v *muni.Vehicle) error {
 // GetVehiclesAfterTime returns all vehicles logged after limit
 func GetVehiclesAfterTime(db *sqlx.DB, limit time.Time) ([]*muni.Vehicle, error) {
 	v := []*muni.Vehicle{}
-	err := db.Select(&v, `SELECT * FROM vehicles WHERE time_recieved >= $1`, limit)
+	err := db.Select(&v, `SELECT * FROM vehicles WHERE time_received >= $1`, limit)
 	if err != nil {
 		return nil, err
 	}
@@ -40,7 +40,7 @@ func GetVehiclesAfterTime(db *sqlx.DB, limit time.Time) ([]*muni.Vehicle, error)
 // GetVehiclesBeforeTime returns all vehicles logged after limit
 func GetVehiclesBeforeTime(db *sqlx.DB, limit time.Time) ([]*muni.Vehicle, error) {
 	v := []*muni.Vehicle{}
-	err := db.Select(&v, `SELECT * FROM vehicles WHERE time_recieved < $1`, limit)
+	err := db.Select(&v, `SELECT * FROM vehicles WHERE time_received < $1`, limit)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func GetVehiclesBeforeTime(db *sqlx.DB, limit time.Time) ([]*muni.Vehicle, error
 }
 
 func RemoveVehiclesOlderThan(db *sqlx.DB, limit time.Time) error {
-	rows, err := db.Query(`DELETE FROM vehicles WHERE time_recieved < $1`, limit)
+	rows, err := db.Query(`DELETE FROM vehicles WHERE time_received < $1`, limit)
 	if err != nil {
 		return err
 	}
