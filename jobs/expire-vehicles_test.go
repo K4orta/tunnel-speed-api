@@ -22,7 +22,7 @@ func TestExpireVehicles(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
-		expireOldVehicles(time.Unix(1460498787925/1000, 0).UTC())
+		expireOldVehicles(time.Unix(1460498787925/1000, 0).Add(time.Minute).UTC())
 		v, err := storage.GetVehiclesBeforeTime(db, time.Unix(1460498787925/1000, 0).Add(time.Minute).UTC())
 		if err != nil {
 			t.Error(err)
