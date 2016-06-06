@@ -37,7 +37,7 @@ func AllVehicles(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	defer db.Close()
-	vd, err := storage.GetVehiclesAfterTime(db, time.Now().Add(time.Minute*-3))
+	vd, err := storage.GetVehiclesAfterTime(db, time.Now().Add(time.Minute*-4))
 	compacted := utils.CompactVehicles(vd)
 	out, err := json.Marshal(compacted)
 	if err != nil {

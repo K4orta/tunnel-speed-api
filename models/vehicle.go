@@ -9,6 +9,7 @@ type MultiVehicle struct {
 	LeadingVehicleID string          `json:"leadingVehicleId"`
 	Stats            []*VehicleStats `json:"stats"`
 	Predictable      bool            `json:"predictable"`
+	Direction        string          `json:"direction"`
 }
 
 // VehicleStats contains the properties of a vehicle that change over time

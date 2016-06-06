@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"strings"
 	"time"
 
 	"github.com/k4orta/muni"
@@ -22,10 +23,6 @@ func CompactVehicles(vehicles []*muni.Vehicle) []*models.MultiVehicle {
 			out = append(out, cache[v.ID])
 		}
 
-		if !v.Predictable {
-			cache[v.ID].Predictable = false
-		}
-
 		cache[v.ID].Stats = append(cache[v.ID].Stats, &models.VehicleStats{
 			SpeedKmHr:   v.SpeedKmHr,
 			Predictable: v.Predictable,
@@ -38,5 +35,22 @@ func CompactVehicles(vehicles []*muni.Vehicle) []*models.MultiVehicle {
 			},
 		})
 	}
+
+	// Loop over created MultiVehicle objects and buble up certain stats
+	for _, v := range out {
+		if !v.Stats[0].Predictable {
+			v.Predictable = false
+		}
+
+		v.Direction = parseDirection(v.Stats[0].DirTag)
+	}
+
 	return out
+}
+
+func parseDirection(dirTag string) string {
+	if strings.Contains(dirTag, "_I_") {
+		return "inbound"
+	}
+	return "outbound"
 }

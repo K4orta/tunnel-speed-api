@@ -37,6 +37,14 @@ func TestCompactVehicles(t *testing.T) {
 	if stats.Time != time.Unix(1460775707000/1000, 0).Add(-time.Second*44) {
 		t.Error("Failed to subtract SecsSinceReport from TimeReceived")
 	}
+
+	if v.Predictable == false {
+		t.Error("expected Predictable to be true")
+	}
+
+	if v.Direction != "inbound" {
+		t.Error(`Failed to set vehicle direction. Expected "inbound" got:`, v.Direction)
+	}
 }
 
 func createStubs() []*muni.Vehicle {
@@ -51,6 +59,7 @@ func createStubs() []*muni.Vehicle {
 			SpeedKmHr:        66,
 			DirTag:           "N____I_E30",
 			SecsSinceReport:  44,
+			Predictable:      true,
 		},
 		&muni.Vehicle{
 			ID:               "1545",
@@ -62,6 +71,7 @@ func createStubs() []*muni.Vehicle {
 			SpeedKmHr:        0,
 			DirTag:           "N____I_E30",
 			SecsSinceReport:  44,
+			Predictable:      true,
 		},
 		&muni.Vehicle{
 			ID:               "1111",
@@ -73,6 +83,7 @@ func createStubs() []*muni.Vehicle {
 			SpeedKmHr:        0,
 			DirTag:           "N____I_E30",
 			SecsSinceReport:  44,
+			Predictable:      true,
 		},
 	}
 }
